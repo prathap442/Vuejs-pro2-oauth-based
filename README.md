@@ -142,3 +142,23 @@ Patch to the above problem.
     ]
   })
 ```
+
+
+What are the Lifecycle methods of the compoent?
+
+
+Ans: Before the Component gets rendered on to the dom the component would be created, mounted and the events that exists in between and around these mile stones are called the Lifecycle methods for a sepcific component .
+
+Vuejs.org has got the better documentation to it and since we are trying to play and deal wwith the data fecthing as per the docs that are being suggested in the vue js documentation we are going to use the "created" lifecycle method and this can be made to be visualised by.
+
+in AuthHandler.vue
+```
+<script>
+  export default({
+    name: "AuthHandler",
+    created(){
+        //we write here the logic of dealing with fetching up the data.
+    }  
+  })
+</script>
+```
