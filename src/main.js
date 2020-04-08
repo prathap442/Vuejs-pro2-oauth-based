@@ -9,7 +9,6 @@ import AuthHandler from './components/AuthHandler';
 
 Vue.config.productionTip = false
 
-
 Vue.use(VueRouter);
 
 const router = new VueRouter({

@@ -1,10 +1,11 @@
 import api from "../../api/imgur";
+import qs from 'qs';
 const state = {
   token: null
 };
 
 const getters = {
-  isLoggedin: state => state.token
+  isLoggedIn: state => !!state.token
 };
 
 
@@ -19,8 +20,11 @@ const mutations = {
 };
 
 const actions = {
-  finalizeLogin: () => {
-   
+  finalizeLogin: ( { commit }, hash ) => {
+    const qs_object = qs.parse(hash.replace('#',''));
+    console.log(qs_object.access_token);
+    commit('setToken',qs_object.access_token);
+    return qs_object.access_token;
   },
   login: ()=>{
     api.login();
