@@ -95,3 +95,50 @@ So in order make utilisation of the modules we make a folder called as the modul
 ```
 https://api.imgur.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&response_type=REQUESTED_RESPONSE_TYPE&state=APPLICATION_STATE
 ```
+Just Like this
+
+```
+  http://localhost:8080/oauth2/callback#/access_token=9aa39238396aa245ad92cd23edf3e0c8d5e4867a&expires_in=315360000&token_type=bearer&refresh_token=51d5da799e906884ba2f36527da875bf632c8f12&account_username=mohanprathap2384948934&account_id=127565147
+```
+> What is the VueRouter?
+- The VueRouter is the package that is used for the sake of the routings that take place in the Vuejs application .
+- The VueRouter is going is being made to setup as shown in the below steps
+```
+in src/main.js
+import "VueRouter" from 'vue-router';
+const router = new VueRouter({
+  routes: [
+    {
+      path: "/",
+      component: AuthHandler
+    }
+  ]
+})
+new Vue({
+  router: router,
+  store: store,
+  render: h => h(App)    
+})
+
+As we are using the vue-router npm it by deafults adds "#" symbol after the base url
+and gives the output as .
+```
+
+> Problem(With the Vue Router Usage): 
+localhost:8080/#/
+  The Vue  router does the process of considering anything after the # sign to be the uri and then if take of this type to the oauth call back url then things would fail drastically .
+Patch to the above problem.
+```
+  is to make the configuration to the Vue Router the setting in such way that it interprets the normal way and the way to do this is to setup the mode for the Vue Router during the process of the creation of the Vue instance and that is done as shown 
+
+
+  new VueRouter({
+    mode: "history",
+    routes: [
+      {
+        component: AuthHandler,
+        path: "/oauth2/callback"
+      }
+    ]
+  })
+```
