@@ -1,18 +1,17 @@
 <template>
   <div>
-    Is the person Logged In ? {{isLoggedIn}}
+    Is the person Logged In
     Please Wait .....
   </div>
 </template>
 <script>
-  import { mapActions, mapGetters } from 'vuex';
+  import { mapActions } from 'vuex';
   export default {
     name: 'AuthHandler',
     methods: mapActions(['finalizeLogin']),
     created() {
       this.finalizeLogin(window.location.hash);
-    },
-    computed: mapGetters(['isLoggedIn'])
+    }
   };
 </script>
 <style>
