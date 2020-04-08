@@ -2,7 +2,7 @@
   <div id="root">
     <AppHeader></AppHeader>
     This is the App.vue component
-    {{ sf }}
+    <router-view></router-view>
   </div>
 </template>
 <script>
