@@ -185,7 +185,14 @@ const mutations = {
 
 const actions = {
   fetchImages(){
-    
+
   }
 }
 ```
+
+
+
+The project status as of now is of:
+![alt text](https://github.com/prathap442/Vuejs-pro2-oauth-based/blob/master/imageslistings-2.gif)
+
+- We are able to get the response from the imgur api and then be able to make the get request here .
