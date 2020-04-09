@@ -5,7 +5,10 @@ const state = {
 };
 
 const getters = {
-  isLoggedIn: state => !!state.token
+  isLoggedIn: () =>  {
+    console.log(localStorage.getItem('imgur_x_auth_token'));
+    return !!localStorage.getItem('imgur_x_auth_token');
+  }  
 };
 
 
@@ -24,13 +27,17 @@ const actions = {
     const qs_object = qs.parse(hash.replace('#',''));
     console.log(qs_object.access_token);
     commit('setToken',qs_object.access_token);
+    localStorage.setItem('imgur_x_auth_token', qs_object.access_token)
+    window.location = "/"
     return qs_object.access_token;
   },
   login: ()=>{
     api.login();
   },
   logout: ({ commit }) => {
-    commit('setToken',null)
+    commit('setToken',null);
+    localStorage.setItem('imgur_x_auth_token', '');
+    window.location.href="/"
   }
 };
 
