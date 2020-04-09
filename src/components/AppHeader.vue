@@ -2,8 +2,8 @@
   <div>
     <span> This is the AppHeader.vue</span>
     <div v-if="isLoggedIn">
-      <a class="item">Images</a>
-      <a class="item">Upload Images</a>
+      <router-link to="/images" class="item">Images</router-link>
+      <router-link to="/upload" class="item">UpLoad Images</router-link>
       <button class="item" v-on:click="logout">Logout</button>
       {{ isLoggedIn }}  
     </div>
