@@ -3,6 +3,7 @@ import App from './App.vue';
 import store from './store';
 import VueRouter from 'vue-router';
 import ImageList from './components/ImageList';
+import UploadForm from "./components/UploadForm";
 //Note here i'm not trying to do import Store from './store/index.js' instead we are doing import store from './store';
 //Webpack does the process of importing index.js file from the /store folder by its intelligence .
 
@@ -22,6 +23,10 @@ export const router = new VueRouter({
     {
       path: "/images",
       component: ImageList
+    },
+    {
+      path: "/upload",
+      component: UploadForm
     }
   ] 
 })
