@@ -11,13 +11,22 @@ export default({
     window.location = `${ROOT_BASE_URL}/oauth2/authorize?${qs.stringify(querystring)}`;
   },
   fetchImages(token){
-    let fetchUrl = `${ROOT_BASE_URL}/3/account/me/images`;
-    let response = axios.get(fetchUrl,{
+    let fetchUrl = `https://api.imgur.com/3/account/me/images`;
+    axios.get(fetchUrl,{
       headers: {
         Authorization: `Bearer ${token}`
-      }        
-    });
-    console.log(response.data);
+      }
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log("this is the catch block")
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    })          
   }
 })
 //with export default what everwe pass is an object from here to the another place of the import

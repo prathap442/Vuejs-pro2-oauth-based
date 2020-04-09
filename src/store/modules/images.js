@@ -16,9 +16,18 @@ const mutations = {
 };
 
 const actions = {
-  async fetchImages({ rootState }){
-    let { token } = rootState.auth;
-    const response = await api.fetchImages(token);
+  fetchImages({ rootState }){
+    const token = rootState.auth.token;//here we get the token
+    console.log(`the token obtained is ${token}`);
+    const response = api.fetchImages(token);
     console.log(response);
   }
 }
+
+//this is making basically images.getters to be made available
+export default{
+  state,
+  getters,
+  actions,
+  mutations
+};

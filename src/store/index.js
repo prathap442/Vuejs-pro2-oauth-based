@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 //importing module in the store/index.js
 import auth from "./modules/auth";
-
+import images from './modules/images';
 //Vuex the data store source .
 // using of the Vuex library
 Vue.use(Vuex);
@@ -15,7 +15,8 @@ Vue.use(Vuex);
 // Image module to handle with the uploading of the images and other stuff .
 export default new Vuex.Store({
   modules: {
-    auth: auth // and here what ever the keys that we add will actually effect the data to be accessed inside your components
+    auth: auth, // and here what ever the keys that we add will actually effect the data to be accessed inside your components
+    images: images
   }
 })
 
