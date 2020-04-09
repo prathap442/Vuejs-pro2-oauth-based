@@ -1,5 +1,6 @@
 import api from "../../api/imgur";
 import qs from 'qs';
+import { router } from "../../main.js";
 const state = {
   token: null
 };
@@ -25,19 +26,17 @@ const mutations = {
 const actions = {
   finalizeLogin: ( { commit }, hash ) => {
     const qs_object = qs.parse(hash.replace('#',''));
-    console.log(qs_object.access_token);
     commit('setToken',qs_object.access_token);
-    localStorage.setItem('imgur_x_auth_token', qs_object.access_token)
-    window.location = "/"
-    return qs_object.access_token;
+    localStorage.setItem('imgur_x_auth_token', qs_object.access_token);
+    router.push('/');
   },
   login: ()=>{
     api.login();
   },
   logout: ({ commit }) => {
-    commit('setToken',null);
+    commit('setToken','');
     localStorage.setItem('imgur_x_auth_token', '');
-    window.location.href="/"
+    window.location.href = "/";
   }
 };
 

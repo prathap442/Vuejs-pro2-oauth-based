@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import store from './store';
 import VueRouter from 'vue-router';
+import ImageList from './components/ImageList';
 //Note here i'm not trying to do import Store from './store/index.js' instead we are doing import store from './store';
 //Webpack does the process of importing index.js file from the /store folder by its intelligence .
 
@@ -11,12 +12,16 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter);
 
-const router = new VueRouter({
+export const router = new VueRouter({
   mode: 'history',
   routes: [
     { 
       path: "/oauth2/callback",
       component: AuthHandler
+    },
+    {
+      path: "/images",
+      component: ImageList
     }
   ] 
 })
