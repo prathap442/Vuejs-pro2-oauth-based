@@ -1,14 +1,15 @@
 <template>
   <div class="dropper">
-    <input type="file" mutliple="true" />
+    <input type="file"  v-on:change="uploadImages($event.target.files)"  accept="image/*" mutliple/>
     <span>Drop Your Files Here</span>
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex';
 export default ({
   name: "UploadForm",
+  methods: mapActions(['uploadImages']),
   components: {
-
   }
 })
 </script>

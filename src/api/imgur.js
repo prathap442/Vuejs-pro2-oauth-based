@@ -18,7 +18,6 @@ export default({
       }
     })
     .then(function (response) {
-      console.log(response);
       return response;
     })
     .catch(function (error) {
@@ -28,6 +27,21 @@ export default({
     .finally(function () {
       // always executed
     })
+  },
+
+  uploadImages(images, token){
+    const promises = Array.from(images).map(image => {
+      const formData = new FormData();
+      formData.append('image', image);
+      console.log(`the token in imgur is ${token}`)
+      token = localStorage.getItem("imgur_x_auth_token") || token;
+      return axios.post(`${ROOT_BASE_URL}/3/image`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+    });
+    return Promise.all(promises);
   }
 })
 //with export default what everwe pass is an object from here to the another place of the import
