@@ -193,6 +193,8 @@ const actions = {
 
 
 The project status as of now is of:
-![alt text](https://github.com/prathap442/Vuejs-pro2-oauth-based/blob/master/imageslistings-2.gif)
+![alt text](https://github.com/prathap442/Vuejs-pro2-oauth-based/blob/master/safal.gif)
 
 - We are able to get the response from the imgur api and then be able to make the get request here .
+
+Able to upload the image to the imgur and then able to see the response in the imgur website .
