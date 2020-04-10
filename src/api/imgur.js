@@ -19,6 +19,7 @@ export default({
     })
     .then(function (response) {
       console.log(response);
+      return response;
     })
     .catch(function (error) {
       console.log("this is the catch block")
@@ -26,7 +27,7 @@ export default({
     })
     .finally(function () {
       // always executed
-    })          
+    })
   }
 })
 //with export default what everwe pass is an object from here to the another place of the import

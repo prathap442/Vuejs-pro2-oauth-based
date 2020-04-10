@@ -20,6 +20,7 @@ const actions = {
     const token = rootState.auth.token;//here we get the token
     console.log(`the token obtained is ${token}`);
     const response = api.fetchImages(token);
+    console.log("---------------------")
     console.log(response);
   }
 }

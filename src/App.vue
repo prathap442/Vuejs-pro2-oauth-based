@@ -2,7 +2,9 @@
   <div id="root">
     <AppHeader></AppHeader>
     This is the App.vue component
-    <router-view></router-view>
+    <div class="ui container">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 <script>

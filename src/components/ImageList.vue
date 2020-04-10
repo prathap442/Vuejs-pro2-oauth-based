@@ -8,11 +8,10 @@
   export default({
     name: 'ImageList',
     components: {
-
     },
     methods: mapActions(['fetchImages']),      
     created() {
-      this.fetchImages();
+      this.fetchImages()
     }
   })
 </script>
